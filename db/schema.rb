@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215234855) do
+ActiveRecord::Schema.define(version: 20131216023729) do
 
   create_table "temperatures", force: true do |t|
     t.float    "degrees"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "temperatures", ["created_at"], name: "index_temperatures_on_created_at"
 
 end
