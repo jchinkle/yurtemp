@@ -4,7 +4,7 @@ class TemperaturesController < ApplicationController
   # GET /temperatures
   # GET /temperatures.json
   def index
-    @temperatures = Temperature.find(:all, :order => "created_at desc", :limit => 1440).reverse
+    @temperatures = Temperature.find(:all, :order => "created_at desc", :limit => 1440)
     @current_temp = Temperature.last
   end
 
