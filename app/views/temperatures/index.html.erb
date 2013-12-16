@@ -5,9 +5,11 @@
       .chart { vertical-align: bottom; }
       .chart img
       {
-       border: 0px;
-       padding: 0px;
-       margin: -2.5px;
+        background-image: url(https://s3.amazonaws.com/cdn.noktaras.com/blue.png);
+        border: 0px;
+        padding: 0px;
+        margin: -2.5px;
+        width: 2px;
       }
     </style>
   </head>
@@ -20,7 +22,7 @@
 
     <div class="chart">
       <% @temperatures.each do |temp| %>
-        <%= image_tag "blue.png", :width => 1, :height => temp.degrees %>
+        <img height="<%= temp.degrees %>px">
       <% end %>
     </div>
 
