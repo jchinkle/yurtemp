@@ -5,11 +5,17 @@
       .chart { vertical-align: bottom; }
       .chart img
       {
-        background-image: url(https://s3.amazonaws.com/cdn.noktaras.com/blue.png);
+        background-color: green;
         border: 0px;
         padding: 0px;
         margin: -2.5px;
         width: 2px;
+      }
+      .hot {
+        background-color: red !important;
+      }
+      .cold {
+        background-color: blue !important;
       }
     </style>
   </head>
@@ -22,7 +28,7 @@
 
     <div class="chart">
       <% @temperatures.each do |temp| %>
-        <img height="<%= temp.degrees %>px">
+        <img height="<%= temp.degrees %>px" class="<%= temp.degrees > 70.0 ? "hot" : (temp.degrees < 60.0 ? "cold" : "")%>">
       <% end %>
     </div>
 
