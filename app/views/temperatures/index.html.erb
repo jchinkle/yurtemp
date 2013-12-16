@@ -1,28 +1,50 @@
-<h1>Current Yurt Conditions</h1>
+<html>
+  <head>
+    <title>Yurt Conditions</title>
+    <style>
+      .chart { vertical-align: bottom; }
+      .chart img
+      {
+       border: 0px;
+       padding: 0px;
+       margin: -2.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Current Yurt Conditions</h1>
 
-<h2> Current Temperature: <%= @current_temp.degrees%>°F<br/>
-  Last Read @ <%= @current_temp.created_at.to_formatted_s(:short)%></h2>
+    <h2> Current Temperature: <%= @current_temp.degrees%>°F<br/>
+      Last Read @ <%= @current_temp.created_at.to_formatted_s(:short)%></h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Degrees</th>
-      <th>When</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @temperatures.each do |temperature| %>
-      <tr>
-        <td><%= temperature.degrees %></td>
-        <td><%= temperature.created_at.to_formatted_s(:short) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="chart">
+      <% @temperatures.each do |temp| %>
+        <%= image_tag "blue.png", :width => 1, :height => temp.degrees %>
+      <% end %>
+    </div>
 
-<br>
 
+    <table>
+      <thead>
+        <tr>
+          <th>Degrees</th>
+          <th>When</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @temperatures.each do |temperature| %>
+          <tr>
+            <td><%= temperature.degrees %></td>
+            <td><%= temperature.created_at.to_formatted_s(:short) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </body>
+</html>
